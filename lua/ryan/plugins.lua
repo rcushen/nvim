@@ -58,5 +58,12 @@ return require('packer').startup(function(use)
 	  dependencies = { "nvim-tree/nvim-web-devicons" },
   }
 
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+
+  use { "lukas-reineke/indent-blankline.nvim" 
+
+
+  use { 'ggandor/leap.nvim' }
+
 end)
 
