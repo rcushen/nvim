@@ -60,10 +60,18 @@ return require('packer').startup(function(use)
 
   use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
-  use { "lukas-reineke/indent-blankline.nvim" 
-
+  use { "lukas-reineke/indent-blankline.nvim" }
 
   use { 'ggandor/leap.nvim' }
+
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
+  use {
+	  'numToStr/Comment.nvim',
+	  config = function()
+		  require('Comment').setup()
+	  end
+  }
 
 end)
 
