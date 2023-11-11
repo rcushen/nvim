@@ -24,9 +24,11 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
+-- Set some buffer commands
 vim.keymap.set('n', '<Tab>', vim.cmd.bn)
 vim.keymap.set('n', '<S-Tab>', vim.cmd.bp)
 vim.keymap.set('n', '<leader>q', vim.cmd.bdelete)
+vim.keymap.set('n', '<leader>w', ':w<CR>')
 
 -- Remap the window change commands to mine
 vim.keymap.set('n', '<C-w>j', '<C-w>h')
