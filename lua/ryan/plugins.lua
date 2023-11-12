@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
 	  priority = 1000,
 	  opts = {},
   }
-  
+
   use { "theprimeagen/harpoon" }
 
   use { "mbbill/undotree" }
@@ -74,6 +74,8 @@ return require('packer').startup(function(use)
 		  require('Comment').setup()
 	  end
   }
+
+  use { 'dense-analysis/ale' }
 
 end)
 
