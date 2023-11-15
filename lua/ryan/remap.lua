@@ -12,6 +12,8 @@ vim.keymap.set("n", "<leader> ", vim.cmd.noh)
 -- NvimTree commands
 vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeFocus)
 vim.keymap.set("n", "<C-n>", vim.cmd.NvimTreeToggle)
+vim.keymap.set("n", "<leader>r", vim.cmd.NvimTreeRefresh)
+vim.keymap.set("n", "<leader>ft", vim.cmd.NvimTreeFindFile)
 
 -- Set numbers
 vim.wo.number = true
