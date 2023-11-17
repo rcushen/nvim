@@ -51,5 +51,5 @@ vim.keymap.set({'n', 'v'}, '<leader>Y', "\"+Y")
 vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format() end)
 
 -- Set vertical column
-vim.opt.colorcolumn = "80,120"
+-- vim.opt.colorcolumn = "80,120"
 
