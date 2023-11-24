@@ -22,7 +22,9 @@ return require('packer').startup(function(use)
 
   use {'github/copilot.vim', branch = 'release' }
 
+  -- Color schemes
   use { "catppuccin/nvim", as = "catppuccin" }
+  use { 'Mofiqul/dracula.nvim', as = 'dracula' }
   use {
 	  "folke/tokyonight.nvim",
 	  lazy = false,
