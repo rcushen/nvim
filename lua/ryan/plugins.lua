@@ -1,83 +1,114 @@
 return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
+    -- Package manager
+    use 'wbthomason/packer.nvim'
 
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.4',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+    -- Fuzzy finder
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
 
-  use {
-          'nvim-tree/nvim-tree.lua',
-          requires = {
-        	  'nvim-tree/nvim-web-devicons',
-          },
-  }
+    -- File explorer
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = { 'nvim-tree/nvim-web-devicons', },
+    }
 
-  use { 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'} }
+    -- Treesitter
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        { run = ':TSUpdate' }
+    }
 
-  use {
-	  'nvim-lualine/lualine.nvim',
-	  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
+    -- Lualine
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
 
-  use {'github/copilot.vim', branch = 'release' }
+    -- Copilot
+    use { 'github/copilot.vim' }
 
-  -- Color schemes
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use { 'Mofiqul/dracula.nvim', as = 'dracula' }
-  use {
-	  "folke/tokyonight.nvim",
-	  lazy = false,
-	  priority = 1000,
-	  opts = {},
-  }
+    -- Color schemes
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use { 'Mofiqul/dracula.nvim', as = 'dracula' }
+    use { 'rose-pine/neovim' }
+    use {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+        as = "tokyonight"
+    }
 
-  use { "theprimeagen/harpoon" }
+    -- Harpoon (file marks)
+    use { "theprimeagen/harpoon" }
 
-  use { "mbbill/undotree" }
+    -- Undo tree
+    use { "mbbill/undotree" }
 
-  use { "tpope/vim-fugitive" }
+    -- Vim fugitive (git integration)
+    use { "tpope/vim-fugitive" }
 
-  use {
-	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v3.x',
-	  requires = {
-		  --- Uncomment these if you want to manage LSP servers from neovim
-		  {'williamboman/mason.nvim'},
-		  {'williamboman/mason-lspconfig.nvim'},
+    -- LSP
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
+        requires = {
+            --- Uncomment these if you want to manage LSP servers from neovim
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
 
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},
-		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-		  {'L3MON4D3/LuaSnip'},
-	  }
-  }
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },
 
-  use {
-	  "folke/trouble.nvim",
-	  dependencies = { "nvim-tree/nvim-web-devicons" },
-  }
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
+        }
+    }
 
-  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+    -- Trouble (LSP diagnostics)
+    use {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    }
 
-  use { "lukas-reineke/indent-blankline.nvim" }
+    -- Code folding
+    use {
+        'kevinhwang91/nvim-ufo',
+        requires = 'kevinhwang91/promise-async'
+    }
 
-  use { 'ggandor/leap.nvim' }
+    -- Indent lines
+    use { "lukas-reineke/indent-blankline.nvim" }
 
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+    -- Navigation
+    use { 'ggandor/leap.nvim' }
 
-  use { 'ntpeters/vim-better-whitespace' }
+    -- Git signs
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = { 'nvim-lua/plenary.nvim' }
+    }
 
-  use {
-	  'numToStr/Comment.nvim',
-	  config = function()
-		  require('Comment').setup()
-	  end
-  }
+    -- Highlight trailing whitespace
+    use { 'ntpeters/vim-better-whitespace' }
 
-  use { 'dense-analysis/ale' }
+    -- Comment
+    use { 'tpope/vim-commentary' }
+
+    -- Zen
+    use { 'folke/zen-mode.nvim' }
+
+    -- Highlighting
+    use { 'RRethy/vim-illuminate' }
+
+    -- Maybes...
+    -- vim-illuminate
+    -- twilight
+    -- noice
+    -- which-key
 
 end)
-

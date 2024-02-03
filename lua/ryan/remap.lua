@@ -8,6 +8,7 @@ vim.g.mapleader = " "
 
 -- Double space clears highlights
 vim.keymap.set("n", "<leader> ", vim.cmd.noh)
+vim.o.cursorline = true
 
 -- NvimTree commands
 vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeFocus)
@@ -45,28 +46,16 @@ vim.keymap.set('v', 'L', ":m '<-2<CR>gv=gv")
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
+-- Shortcuts for yanking to the system clipboard
 vim.keymap.set({ 'n', 'v' }, '<leader>y', "\"+y")
 vim.keymap.set({ 'n', 'v' }, '<leader>Y', "\"+Y")
 
+-- Format the buffer
 vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format() end)
 
 -- Create quick commands for splits
 vim.keymap.set('n', '<leader>sh', ':split<CR>')
 vim.keymap.set('n', '<leader>sv', ':vsplit<CR>')
-
--- Create quick commands for marks
-function SetMark()
-    local key = vim.fn.nr2char(vim.fn.getchar())
-    vim.cmd('mark ' .. key)
-end
-function JumpToMark()
-    local key = vim.fn.nr2char(vim.fn.getchar())
-    vim.cmd('normal! `' .. key)
-end
-
-vim.keymap.set('n', '<leader>m', SetMark)
-vim.keymap.set('n', '<leader>j', JumpToMark)
-vim.keymap.set('n', '<leader>sm', ':marks<CR>')
 
 -- Set vertical column
 -- vim.opt.colorcolumn = "80,120"
