@@ -102,9 +102,6 @@ return require('packer').startup(function(use)
     -- Zen
     use { 'folke/zen-mode.nvim' }
 
-    -- Highlighting
-    use { 'RRethy/vim-illuminate' }
-
     -- Maybes...
     -- vim-illuminate
     -- twilight
