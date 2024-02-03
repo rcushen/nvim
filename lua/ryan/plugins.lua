@@ -99,13 +99,11 @@ return require('packer').startup(function(use)
     -- Comment
     use { 'tpope/vim-commentary' }
 
-    -- Zen
-    use { 'folke/zen-mode.nvim' }
-
     -- Maybes...
     -- vim-illuminate
     -- twilight
     -- noice
+    -- zen-mode
     -- which-key
 
 end)

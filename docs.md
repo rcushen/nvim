@@ -36,4 +36,5 @@
 `gc`: Comment out the selection
 
 # Useful Commands
+
 :StripWhitespace
