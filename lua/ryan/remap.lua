@@ -1,14 +1,13 @@
--- Remap the navigation keys to mine
+vim.g.mapleader = " "
+
+-- Remap the navigation keys to my preference
 vim.keymap.set({ 'n', 'v', 'x' }, 'j', 'h')
 vim.keymap.set({ 'n', 'v', 'x' }, 'k', 'j')
 vim.keymap.set({ 'n', 'v', 'x' }, 'l', 'k')
 vim.keymap.set({ 'n', 'v', 'x' }, ';', 'l')
 
-vim.g.mapleader = " "
-
 -- Double space clears highlights
 vim.keymap.set("n", "<leader> ", vim.cmd.noh)
-vim.o.cursorline = true
 
 -- NvimTree commands
 vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeFocus)
@@ -19,6 +18,7 @@ vim.keymap.set("n", "<leader>fe", vim.cmd.NvimTreeFindFile)
 -- Set numbers
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.opt.cursorline = true
 vim.opt.scrolloff = 8
 vim.opt.wrap = false
 
@@ -39,6 +39,7 @@ vim.keymap.set('n', '<C-w>k', '<C-w>j')
 vim.keymap.set('n', '<C-w>l', '<C-w>k')
 vim.keymap.set('n', '<C-w>;', '<C-w>l')
 
+-- Allow moving selected lines
 vim.keymap.set('v', 'K', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'L', ":m '<-2<CR>gv=gv")
 

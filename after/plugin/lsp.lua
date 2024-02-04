@@ -20,8 +20,25 @@ require('mason-lspconfig').setup({
     ensure_installed = { 'tsserver', 'rust_analyzer' },
     handlers = {
         lsp.default_setup,
+
         lua_ls = function()
             local lua_opts = lsp.nvim_lua_ls()
+            -- Add or modify the lua_opts table to include Lua language server settings
+            lua_opts.settings = {
+                Lua = {
+                    diagnostics = {
+                        -- Tell the language server that 'vim' is a global variable
+                        globals = { 'vim' },
+                    },
+                    workspace = {
+                        -- This helps the language server to understand the neovim runtime files,
+                        -- adjust the library path as necessary
+                        library = vim.api.nvim_get_runtime_file("", true),
+                    },
+                    -- You can adjust other settings here as needed
+                },
+            }
+
             require('lspconfig').lua_ls.setup(lua_opts)
         end,
     }

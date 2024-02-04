@@ -1,5 +1,8 @@
 # Key Mappings
 
+`<leader>w`: Write the current buffer
+`<leader>q`: Close the currrent buffer
+
 `<leader>y`: Yank the selection to system register
 `<leader>Y`: Yank the line to system register
 
@@ -34,6 +37,18 @@
 
 `gcc`: Comment out a line
 `gc`: Comment out the selection
+
+`<leader>vws`: Search for workspace symbols
+`<leader>vd`: Pop up a floating dialogue with diagnostics
+`K`: Pop up a floating dialogue with information on the symbol
+`"[d"` and `"]d"` navigate to the next and previous diagnostic messages, respectively.
+
+`"<leader>vca"` shows code actions available at the cursor location.
+`"<leader>vrr"` lists references to the symbol under the cursor in the quickfix window.
+`"<leader>vrn"` renames the symbol under the cursor.
+
+`"<leader>vrr"` lists references to the symbol under the cursor in the quickfix window.
+`"<leader>vrn"` renames the symbol under the cursor.
 
 # Useful Commands
 
