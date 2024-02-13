@@ -31,6 +31,7 @@ vim.opt.shiftwidth = 4
 vim.keymap.set('n', '<Tab>', vim.cmd.bn)
 vim.keymap.set('n', '<S-Tab>', vim.cmd.bp)
 vim.keymap.set('n', '<leader>q', vim.cmd.bdelete)
+vim.keymap.set('n', '<leader>Q', ':qa!<CR>')
 vim.keymap.set('n', '<leader>w', ':w<CR>')
 
 -- Remap the window change commands to mine
