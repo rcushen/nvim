@@ -47,8 +47,17 @@ return require('packer').startup(function(use)
     -- Undo tree
     use { "mbbill/undotree" }
 
-    -- Vim fugitive (git integration)
+    -- Vim fugitive (git plugin)
     use { "tpope/vim-fugitive" }
+
+    -- Lazygit integration
+    use({
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+    },
+})
 
     -- LSP
     use {
