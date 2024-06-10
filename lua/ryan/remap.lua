@@ -61,3 +61,10 @@ vim.keymap.set('n', '<leader>sv', ':vsplit<CR>')
 
 -- Set vertical column
 -- vim.opt.colorcolumn = "80,120"
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "sql",
+    callback = function()
+        vim.opt_local.colorcolumn = "80,120"
+    end,
+})
+
