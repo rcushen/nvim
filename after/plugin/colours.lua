@@ -1,10 +1,9 @@
 require("tokyonight").setup({
-    style = "storm",
-    -- transparent = true,
+    transparent = true,
     styles = {
-        -- sidebars = "transparent",
-        -- floats = "transparent",
+        sidebars = "transparent",
+        floats = "transparent",
     }
 })
 
-vim.cmd.colorscheme "rose-pine"
+vim.cmd.colorscheme "tokyonight"
