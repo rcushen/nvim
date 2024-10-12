@@ -29,6 +29,9 @@ return require('packer').startup(function(use)
     -- Copilot
     use { 'github/copilot.vim' }
 
+    -- Zen mode
+    use { 'folke/zen-mode.nvim' }
+
     -- Color schemes
     use { "catppuccin/nvim", as = "catppuccin" }
     use { 'Mofiqul/dracula.nvim', as = 'dracula' }
