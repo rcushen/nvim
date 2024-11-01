@@ -115,7 +115,6 @@ return require('packer').startup(function(use)
     -- vim-illuminate
     -- twilight
     -- noice
-    -- zen-mode
     -- which-key
 
 end)
