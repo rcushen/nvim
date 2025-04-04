@@ -93,9 +93,6 @@ return require('packer').startup(function(use)
         requires = 'kevinhwang91/promise-async'
     }
 
-    -- Indent lines
-    use { "lukas-reineke/indent-blankline.nvim" }
-
     -- Navigation
     use { 'ggandor/leap.nvim' }
 
