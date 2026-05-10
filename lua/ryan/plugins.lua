@@ -23,26 +23,21 @@ require("lazy").setup({
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-            vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-            vim.keymap.set("n", "<leader>ft", builtin.git_files, {})
-            vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-            vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-        end,
+        keys = {
+            { "<leader>ff", function() require("telescope.builtin").find_files() end },
+            { "<leader>fg", function() require("telescope.builtin").live_grep() end },
+            { "<leader>ft", function() require("telescope.builtin").git_files() end },
+            { "<leader>fb", function() require("telescope.builtin").buffers() end },
+            { "<leader>fh", function() require("telescope.builtin").help_tags() end },
+        },
     },
 
     -- File explorer
     {
         "nvim-tree/nvim-tree.lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            vim.g.loaded_netrw = 1
-            vim.g.loaded_netrwPlugin = 1
-            vim.opt.termguicolors = true
-            require("nvim-tree").setup()
-        end,
+        cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeRefresh", "NvimTreeFindFile" },
+        opts = {},
     },
 
     -- Treesitter
@@ -109,10 +104,6 @@ require("lazy").setup({
             vim.cmd.colorscheme("tokyonight")
         end,
     },
-    { "catppuccin/nvim",      name = "catppuccin", lazy = true },
-    { "Mofiqul/dracula.nvim", name = "dracula",    lazy = true },
-    { "rose-pine/neovim",     name = "rose-pine",  lazy = true },
-
     -- Harpoon (file marks) — harpoon2 branch
     {
         "ThePrimeagen/harpoon",
@@ -140,15 +131,6 @@ require("lazy").setup({
         end,
     },
 
-    -- Git
-    {
-        "tpope/vim-fugitive",
-        cmd = "Git",
-        config = function()
-            vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-        end,
-    },
-
     -- Lazygit integration
     {
         "kdheepak/lazygit.nvim",
@@ -168,6 +150,7 @@ require("lazy").setup({
     { "neovim/nvim-lspconfig" },
     {
         "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-path",
