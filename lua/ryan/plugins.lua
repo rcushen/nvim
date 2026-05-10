@@ -136,9 +136,9 @@ require("lazy").setup({
         "kdheepak/lazygit.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         cmd = "LazyGit",
-        config = function()
-            vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>")
-        end,
+        keys = {
+            { "<leader>gg", ":LazyGit<CR>" },
+        },
     },
 
     -- LSP
