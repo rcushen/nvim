@@ -49,6 +49,7 @@ require("lazy").setup({
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = {
@@ -212,8 +213,13 @@ require("lazy").setup({
         end,
     },
 
-    -- Navigation
-    { "ggandor/leap.nvim", opts = {} },
+    -- Navigation (repo moved to Codeberg)
+    {
+        url = "https://codeberg.org/andyg/leap.nvim",
+        config = function()
+            require("leap").add_default_mappings()
+        end,
+    },
 
     -- Git signs
     { "lewis6991/gitsigns.nvim", opts = {} },
