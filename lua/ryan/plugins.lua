@@ -46,11 +46,12 @@ require("lazy").setup({
         opts = {},
     },
 
-    -- Treesitter
+    -- Treesitter (master branch = 0.11 compatible; new main requires 0.12+)
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "master",
+        lazy = false,
         build = ":TSUpdate",
-        event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = {
