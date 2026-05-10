@@ -125,8 +125,10 @@ require("lazy").setup({
     {
         "mbbill/undotree",
         cmd = "UndotreeToggle",
+        keys = {
+            { "<leader>u", vim.cmd.UndotreeToggle },
+        },
         config = function()
-            vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
             vim.g.undotree_SetFocusWhenToggle = 1
         end,
     },
@@ -168,16 +170,18 @@ require("lazy").setup({
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         cmd = "Trouble",
+        keys = {
+            { "<leader>xx", function() require("trouble").toggle("diagnostics") end },
+            { "<leader>xw", function() require("trouble").toggle("diagnostics") end },
+            { "<leader>xd", function() require("trouble").toggle({ mode = "diagnostics", filter = { buf = 0 } }) end },
+            { "<leader>xq", function() require("trouble").toggle("qflist") end },
+            { "<leader>xl", function() require("trouble").toggle("loclist") end },
+            { "gR",         function() require("trouble").toggle("lsp_references") end },
+        },
         config = function()
             require("trouble").setup({
                 keys = { q = "close" },
             })
-            vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle("diagnostics") end)
-            vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("diagnostics") end)
-            vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle({ mode = "diagnostics", filter = { buf = 0 } }) end)
-            vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("qflist") end)
-            vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
-            vim.keymap.set("n", "gR",         function() require("trouble").toggle("lsp_references") end)
         end,
     },
 
