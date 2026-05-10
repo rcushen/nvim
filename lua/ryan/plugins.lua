@@ -22,7 +22,10 @@ require("lazy").setup({
     -- Fuzzy finder
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        },
         keys = {
             { "<leader>ff", function() require("telescope.builtin").find_files() end },
             { "<leader>fg", function() require("telescope.builtin").live_grep() end },
@@ -30,6 +33,9 @@ require("lazy").setup({
             { "<leader>fb", function() require("telescope.builtin").buffers() end },
             { "<leader>fh", function() require("telescope.builtin").help_tags() end },
         },
+        config = function()
+            require("telescope").load_extension("fzf")
+        end,
     },
 
     -- File explorer
@@ -216,6 +222,40 @@ require("lazy").setup({
 
     -- Comment (treesitter-aware, replaces vim-commentary)
     { "numToStr/Comment.nvim", opts = {} },
+
+    -- Auto-close brackets and quotes
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        dependencies = { "hrsh7th/nvim-cmp" },
+        config = function()
+            require("nvim-autopairs").setup()
+            require("cmp").event:on(
+                "confirm_done",
+                require("nvim-autopairs.completion.cmp").on_confirm_done()
+            )
+        end,
+    },
+
+    -- Surround motions (ys, cs, ds)
+    { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
+
+    -- Keymap popup
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        config = function()
+            local wk = require("which-key")
+            wk.setup()
+            wk.add({
+                { "<leader>f", group = "find" },
+                { "<leader>g", group = "git" },
+                { "<leader>s", group = "split" },
+                { "<leader>v", group = "lsp" },
+                { "<leader>x", group = "trouble" },
+            })
+        end,
+    },
 
 }, {
     checker = { enabled = true },
