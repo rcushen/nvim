@@ -256,5 +256,5 @@ require("lazy").setup({
     },
 
 }, {
-    checker = { enabled = true },
+    checker = { enabled = false },
 })
